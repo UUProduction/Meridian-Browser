@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #0f1117;
+  color: #e2e8f0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #1a1d27; }
+::-webkit-scrollbar-thumb { background: #3a3f5c; border-radius: 3px; }
+
+.url-bar-glow:focus-within {
+  box-shadow: 0 0 0 2px rgba(99, 179, 237, 0.3), 0 0 20px rgba(99, 179, 237, 0.08);
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 0.4; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+@keyframes countdown-drain {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+@keyframes deep-sleep-in {
+  from { opacity: 0; backdrop-filter: blur(0px); }
+  to { opacity: 1; backdrop-filter: blur(12px); }
+}
+
+.deep-sleep-overlay {
+  animation: deep-sleep-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.countdown-bar {
+  animation: countdown-drain linear forwards;
+}
+
+.tab-active {
+  background: linear-gradient(180deg, #1e2235 0%, #1a1d27 100%);
+  border-top: 2px solid #63b3ed;
+}
+
+.nav-btn {
+  transition: all 0.15s ease;
+}
+
+.nav-btn:hover:not(:disabled) {
+  background: rgba(255,255,255,0.06);
+  transform: scale(1.05);
+}
+
+.nav-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.nav-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
